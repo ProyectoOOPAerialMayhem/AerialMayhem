@@ -18,7 +18,8 @@ namespace Aerial_Mayhem
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        GameScenes scene;
+        Player player;
         public Game1()
             : base()
         {
