@@ -8,8 +8,8 @@ namespace Aerial_Mayhem
     public  enum GameScenes{
     StartScreen,OptionScreen,CharacterSlector,LevelSelector,Pause,GameOver,
     }
-    abstract class GameScenes
+    abstract class GameScene
     {
-        public void CahngeScene(GameScenes scene);
+        public abstract void ChangeScene(GameScenes scene);
     }
 }

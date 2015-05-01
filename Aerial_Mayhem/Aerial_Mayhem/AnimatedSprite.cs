@@ -13,58 +13,48 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Aerial_Mayhem
 {
-    enum States
-    {
-        Up, Down, Right, Left, Death, Hurt, Idle
-    }
+ 
     class AnimatedSprite
     {
         // Attributes
-        ArrayListExtended images;
-        ArrayListExtended frameCounts;
-
-        States st;
-
-        Rectangle pos;
-        Rectangle frame;
-
-        int verticalFrames;
-        int horizontalFrames;
-        int currentFrame;
-
-        float timePerFrame;
-        float timer;
+       protected Texture2D image;
+       protected Rectangle pos;
+       protected Rectangle frame;
+       protected Rectangle test; 
+       protected SpriteSheet sp;
+       protected float radian;
+       protected int currentFrame;
+       protected float timePerFrame;
+       protected float timer;
 
 
         // Methods
 
-        public AnimatedSprite(Rectangle position, float timeperFrame)
+        public  AnimatedSprite(ContentManager Content, Rectangle position,SpriteSheet sp, float timeperFrame)
         {
-            //gets how many states are in enum
-            //and add them so they can be replaced later
-            st = States.Idle;
-            images = new ArrayListExtended();
-            frameCounts = new ArrayListExtended();
+            this.sp = sp;
+            image = Content.Load<Texture2D>(sp.FilePath);
             pos = position;
-            foreach (States s in Enum.GetValues(typeof(States)))
-            {
-                images.Add(null);
-                frameCounts.Add(null);
-            }
-            currentFrame = 0; this.timePerFrame = timeperFrame; timer = 0.0f;
+            //new frame starting at initial position dependent of hrizontal frames and vertical ones 
+            frame = new Rectangle(0,0,image.Width/sp.HorizontalFrames,image.Height/sp.VerticalFrames);
+            test = frame;
+            currentFrame = 0; 
+            this.timePerFrame = timeperFrame; 
+            timer = 0.0f;
         }
-        //load animation file for state
-        public void LoadContent(ContentManager Content, States state, string filepath, int frameCount, int verticalFrames, int horizontalFrames)
+        public  Rectangle Pos
         {
-            Texture2D texture = Content.Load<Texture2D>(filepath);
-            images[(int)state] = texture;
-            frameCounts[(int)state] = frameCount;
-            this.verticalFrames = verticalFrames;
-            this.horizontalFrames = horizontalFrames;
-            frame = new Rectangle(0, 0, texture.Width / horizontalFrames, texture.Height / verticalFrames);
+            set { pos = value; }
+            get { return pos; }
+        }
+        public void Rotate(float radIncr)
+        {
+
+            radian += radIncr;
+
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -72,20 +62,20 @@ namespace Aerial_Mayhem
             // Update my currentFrame pointer
             if (timer >= timePerFrame)
             {
-                currentFrame = (currentFrame + 1) % (int)frameCounts[(int)st];
+                currentFrame = (currentFrame + 1) % sp.FrameCount;
                 timer = timer - timePerFrame;
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
 
-            frame.Y = frame.Height * (currentFrame / horizontalFrames % verticalFrames);
-            frame.X = (currentFrame % horizontalFrames) * frame.Width;
-
-
-            //TODO make the animation
-            spriteBatch.Draw((Texture2D)images[(int)st], pos, frame, Color.White);
+            frame.Y = frame.Height * (currentFrame / sp.HorizontalFrames % sp.VerticalFrames);
+            frame.X = (currentFrame % sp.HorizontalFrames) * frame.Width;
+            //this is to handle the sprite from the center rather than the upper-left corner
+            //might be uselful? it might not?
+            Vector2 origin = new Vector2(test.Center.X,test.Center.Y);
+            spriteBatch.Draw(image, pos, frame, Color.White, radian, origin, new SpriteEffects(), 0f);
 
         }
 

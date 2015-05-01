@@ -21,7 +21,7 @@ namespace Aerial_Mayhem
         protected Rectangle pos;
         protected float radian = 0;
 
-        //normal constructor sets the sprite pisition using the image height and width as default
+        //normal constructor sets the sprite position using the image height and width as default
         public BasicSprite(ContentManager Content, int x, int y, string image)
         {
             this.image = Content.Load<Texture2D>(image);
@@ -29,18 +29,18 @@ namespace Aerial_Mayhem
 
 
         }
-        public BasicSprite(ContentManager Content, int x, int y, int width, int height, string image)
+        public BasicSprite(ContentManager Content,Rectangle pos, string image)
         {
             this.image = Content.Load<Texture2D>(image);
-            this.pos = new Rectangle(x, y, width, height);
+            this.pos = pos;
         }
         //overloaded constructor for finer control at creation time
-        public BasicSprite(ContentManager Content, int x, int y, int height, int width, float radian, Color color, string image)
+        public BasicSprite(ContentManager Content, Rectangle pos, float radian, Color color, string image)
         {
             this.image = Content.Load<Texture2D>(image);
             this.color = color;
             this.radian = radian;
-            this.pos = new Rectangle(x, y, width, height);
+            this.pos = pos;
         }
 
         public void Rotate(float radIncr)
@@ -60,7 +60,7 @@ namespace Aerial_Mayhem
             // draws the sprite to screen using the spriteBatch.Draw() method and it's arguments 
             //see https://msdn.microsoft.com/en-us/library/ff433992.aspx for more info
 
-                spriteBatch.Draw(image, pos, null, color, radian, new Vector2(image.Width / 2, image.Height / 2), new SpriteEffects(), 0f);
+                spriteBatch.Draw(image, pos, null, color, radian, new Vector2(pos.Width / 2, pos.Height / 2), new SpriteEffects(), 0f);
         }
        
        
