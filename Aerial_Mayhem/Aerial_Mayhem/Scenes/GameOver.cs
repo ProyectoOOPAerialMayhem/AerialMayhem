@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Aerial_Mayhem.Scenes.Scenes
 {
-    class StartScreen:GameScene
+    class GameOver
     {
     }
 }
