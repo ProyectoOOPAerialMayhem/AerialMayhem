@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aerial_Mayhem.Scenes
+namespace Aerial_Mayhem.Scenes.Scenes
 {
-    class Player
+    class StartScreen
     {
     }
 }

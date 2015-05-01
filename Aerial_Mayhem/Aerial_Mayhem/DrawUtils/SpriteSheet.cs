@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aerial_Mayhem
+namespace Aerial_Mayhem.Scenes.DrawUtils
 {
-    public class SpriteSheet
+    public struct SpriteSheet
     {
-        protected int verticalFrames;
-        protected int horizontalFrames;
-        protected  int frameCount;
-        protected string filepath;
+        int verticalFrames;
+        int horizontalFrames;
+        int frameCount;
+        string filepath;
         public SpriteSheet(string filepath,int verticalFrames,int horizontalFrames, int frameCount)
         {
             this.filepath = filepath;

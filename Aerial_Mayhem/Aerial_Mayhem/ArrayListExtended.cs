@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using System.Collections;
 
-namespace Aerial_Mayhem
+namespace Aerial_Mayhem.Scenes
 {
     class ArrayListExtended : ArrayList
     {

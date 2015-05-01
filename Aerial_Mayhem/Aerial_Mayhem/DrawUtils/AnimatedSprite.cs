@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace Aerial_Mayhem
+namespace Aerial_Mayhem.Scenes.DrawUtils
 {
  
     class AnimatedSprite

@@ -5,8 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Aerial_Mayhem.Scenes.DrawUtils;
 
-namespace Aerial_Mayhem
+namespace Aerial_Mayhem.Scenes
 {
     
     class TestChraracter //TODO CollidableEntity: ICollidable

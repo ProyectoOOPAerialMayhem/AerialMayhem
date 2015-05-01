@@ -12,9 +12,9 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 
-namespace Aerial_Mayhem
+namespace Aerial_Mayhem.Scenes.DrawUtils
 {
-    public class BasicSprite
+    public class SimpleSprite
     {
         protected Texture2D image;
         protected Color color = Color.White;
@@ -22,20 +22,20 @@ namespace Aerial_Mayhem
         protected float radian = 0;
 
         //normal constructor sets the sprite position using the image height and width as default
-        public BasicSprite(ContentManager Content, int x, int y, string image)
+        public SimpleSprite(ContentManager Content, int x, int y, string image)
         {
             this.image = Content.Load<Texture2D>(image);
             this.pos = new Rectangle(x, y, this.image.Width, this.image.Height);
 
 
         }
-        public BasicSprite(ContentManager Content,Rectangle pos, string image)
+        public SimpleSprite(ContentManager Content,Rectangle pos, string image)
         {
             this.image = Content.Load<Texture2D>(image);
             this.pos = pos;
         }
         //overloaded constructor for finer control at creation time
-        public BasicSprite(ContentManager Content, Rectangle pos, float radian, Color color, string image)
+        public SimpleSprite(ContentManager Content, Rectangle pos, float radian, Color color, string image)
         {
             this.image = Content.Load<Texture2D>(image);
             this.color = color;
