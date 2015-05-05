@@ -38,6 +38,7 @@
     <Compile Include="DrawUtils\AnimatedSprite.cs" />
     <Compile Include="ArrayListExtended.cs" />
     <Compile Include="DrawUtils\BasicSprite.cs" />
+    <Compile Include="DrawUtils\LevelBackground.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Scenes\CharacterSelecto.cs" />
     <Compile Include="Scenes\GameOver.cs" />
@@ -47,7 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DrawUtils\SpriteSheet.cs" />
     <Compile Include="Scenes\LeaderBoard.cs" />
-    <Compile Include="Scenes\Level.cs" />
+    <Compile Include="Levels\Level.cs" />
     <Compile Include="Scenes\LevelSelector.cs" />
     <Compile Include="Scenes\OptionScreen.cs" />
     <Compile Include="Scenes\Pause.cs" />
