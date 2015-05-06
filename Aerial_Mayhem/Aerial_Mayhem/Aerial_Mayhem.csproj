@@ -8,7 +8,7 @@
     <ProjectGuid>{8AA2F349-EFF1-43BD-B875-FEC4BF3E55B9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aerial_Mayhem</RootNamespace>
+    <RootNamespace>Aerial_Mayhem.Scenes</RootNamespace>
     <AssemblyName>Aerial_Mayhem</AssemblyName>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,12 +35,25 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AnimatedSprite.cs" />
+    <Compile Include="DrawUtils\AnimatedSprite.cs" />
     <Compile Include="ArrayListExtended.cs" />
-    <Compile Include="BasicSprite.cs" />
+    <Compile Include="DrawUtils\BasicSprite.cs" />
+    <Compile Include="DrawUtils\LevelBackground.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Scenes\CharacterSelecto.cs" />
+    <Compile Include="Scenes\GameOver.cs" />
+    <Compile Include="Scenes\GameScene.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DrawUtils\SpriteSheet.cs" />
+    <Compile Include="Scenes\LeaderBoard.cs" />
+    <Compile Include="Levels\Level.cs" />
+    <Compile Include="Scenes\LevelSelector.cs" />
+    <Compile Include="Scenes\OptionScreen.cs" />
+    <Compile Include="Scenes\Pause.cs" />
+    <Compile Include="Scenes\StartScreen.cs" />
+    <Compile Include="TestChraracter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
@@ -63,11 +76,15 @@
       <Link>SDL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\bs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\fondo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

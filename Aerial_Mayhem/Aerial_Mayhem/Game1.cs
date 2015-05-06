@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using Aerial_Mayhem.Scenes;
 #endregion
 
 namespace Aerial_Mayhem
@@ -16,14 +17,20 @@ namespace Aerial_Mayhem
     /// </summary>
     public class Game1 : Game
     {
+        //Default screen : 480*800
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        //skeleton
+        GameScenes scene;
+        Player player;
+        //testing...
+        TestChraracter bs;
         public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            bs = new TestChraracter(new Rectangle(100, 100, 100, 100));
         }
 
         /// <summary>
@@ -37,6 +44,7 @@ namespace Aerial_Mayhem
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
         }
 
         /// <summary>
@@ -47,7 +55,7 @@ namespace Aerial_Mayhem
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            bs.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -71,7 +79,7 @@ namespace Aerial_Mayhem
                 Exit();
 
             // TODO: Add your update logic here
-
+            bs.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -84,8 +92,10 @@ namespace Aerial_Mayhem
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            bs.Draw(spriteBatch);
             base.Draw(gameTime);
+            spriteBatch.End();
         }
     }
 }
