@@ -17,8 +17,6 @@ namespace Aerial_Mayhem
     /// </summary>
     public class Game1 : Game
     {
-        //kefjdnjdsnajkbadjkscdd
-        //dcdsdjsndjksjdks
         //Default screen : 480*800
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
