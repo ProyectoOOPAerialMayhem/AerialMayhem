@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 
 namespace Aerial_Mayhem
+
 {
-    class Player
+    enum GameScenes
     {
+        StartScreen, OptionScreen, CharacterSlector, LevelSelector, Pause, GameOver,Level,Level2,Level3
     }
 }

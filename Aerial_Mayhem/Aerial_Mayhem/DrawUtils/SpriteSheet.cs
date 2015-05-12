@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aerial_Mayhem.Scenes.DrawUtils
+namespace Aerial_Mayhem.DrawUtils
 {
     public struct SpriteSheet
     {

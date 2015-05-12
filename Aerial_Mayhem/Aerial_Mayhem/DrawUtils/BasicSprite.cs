@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 
-namespace Aerial_Mayhem.Scenes.DrawUtils
+namespace Aerial_Mayhem.DrawUtils
 {
     public class SimpleSprite
     {
@@ -62,7 +62,21 @@ namespace Aerial_Mayhem.Scenes.DrawUtils
 
                 spriteBatch.Draw(image, pos, null, color, radian, new Vector2(pos.Width / 2, pos.Height / 2), new SpriteEffects(), 0f);
         }
-       
+        public Rectangle Pos
+        {
+            get { return pos; }
+            set { pos = value; }
+        }
+        public Color Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+        public float Radian
+        {
+            get { return radian; }
+            set { radian = value; }
+        }
        
     }
 }
