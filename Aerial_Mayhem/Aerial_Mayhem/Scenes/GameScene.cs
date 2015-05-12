@@ -5,11 +5,10 @@ using System.Text;
 
 namespace Aerial_Mayhem.Scenes
 {
-      enum GameScenes{
-    StartScreen,OptionScreen,CharacterSlector,LevelSelector,Pause,GameOver,
-    }
+      
    internal abstract class GameScene
     {
-        public abstract void ChangeScene(GameScenes scene);
+       public void ChangeScene(GameScenes scene) { 
+       }
     }
 }

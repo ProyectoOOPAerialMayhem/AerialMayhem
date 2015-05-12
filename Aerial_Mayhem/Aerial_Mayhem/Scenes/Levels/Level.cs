@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aerial_Mayhem
+namespace Aerial_Mayhem.Levels
 {
-    class Player
+    internal abstract class Level : GameScene
     {
     }
 }

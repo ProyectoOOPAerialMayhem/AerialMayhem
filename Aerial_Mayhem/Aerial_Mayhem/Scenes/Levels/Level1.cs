@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aerial_Mayhem.Scenes.Scenes
+namespace Aerial_Mayhem.Levels
 {
-    class Level
+    class Level1:Level
     {
     }
 }
