@@ -53,6 +53,7 @@
     <Compile Include="Scenes\LevelSelector.cs" />
     <Compile Include="Scenes\Levels\Level1.cs" />
     <Compile Include="Scenes\Levels\Level2.cs" />
+    <Compile Include="Scenes\Levels\Level3.cs" />
     <Compile Include="Scenes\OptionScreen.cs" />
     <Compile Include="Scenes\Pause.cs" />
     <Compile Include="Scenes\StartScreen.cs" />

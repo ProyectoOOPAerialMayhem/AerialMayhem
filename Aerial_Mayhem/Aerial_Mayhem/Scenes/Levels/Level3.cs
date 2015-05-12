@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Aerial_Mayhem.Scenes.Levels
 {
-    internal abstract class Level : GameScene
+    class Level3
     {
     }
 }

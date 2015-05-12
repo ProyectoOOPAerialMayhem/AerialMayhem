@@ -14,10 +14,10 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using System.Collections;
 
-namespace Aerial_Mayhem.Scenes
+namespace Aerial_Mayhem
 {
     class ArrayListExtended : ArrayList
-    {  //hola
+    {  
         public void Replace(int index, Object obj)
         {
             this[index] = obj;

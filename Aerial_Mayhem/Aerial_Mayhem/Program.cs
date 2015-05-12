@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 #endregion
 
-namespace Aerial_Mayhem.Scenes
+namespace Aerial_Mayhem
 {
 #if WINDOWS || LINUX
     /// <summary>
