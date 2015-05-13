@@ -14,8 +14,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Aerial_Mayhem.DrawUtils
 {
-    public class SimpleSprite
+    public  class SimpleSprite
     {
+        //TODO abstract class Rectangle Color , radians, image?
         protected Texture2D image;
         protected Color color = Color.White;
         protected Rectangle pos;
@@ -26,8 +27,6 @@ namespace Aerial_Mayhem.DrawUtils
         {
             this.image = Content.Load<Texture2D>(image);
             this.pos = new Rectangle(x, y, this.image.Width, this.image.Height);
-
-
         }
         public SimpleSprite(ContentManager Content,Rectangle pos, string image)
         {
