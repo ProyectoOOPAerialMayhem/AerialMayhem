@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Aerial_Mayhem.DrawUtils
 {
  
-    class AnimatedSprite
+    public class AnimatedSprite
     {
         // Attributes
        protected Texture2D image;
@@ -26,6 +26,7 @@ namespace Aerial_Mayhem.DrawUtils
        protected int currentFrame;
        protected float timePerFrame;
        protected float timer;
+       bool play=true;
 
 
         // Methods
@@ -53,6 +54,10 @@ namespace Aerial_Mayhem.DrawUtils
             radian += radIncr;
 
         }
+        public void Stop(int frame)
+        {
+            currentFrame = frame;
+        }
 
         public virtual void Update(GameTime gameTime)
         {
@@ -62,7 +67,8 @@ namespace Aerial_Mayhem.DrawUtils
             // Update my currentFrame pointer
             if (timer >= timePerFrame)
             {
-                currentFrame = (currentFrame + 1) % sp.FrameCount;
+                if (play)
+                    currentFrame = (currentFrame + 1) % sp.FrameCount;
                 timer = timer - timePerFrame;
             }
         }

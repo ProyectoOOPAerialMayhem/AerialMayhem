@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
 using Aerial_Mayhem.Scenes;
+using Aerial_Mayhem.DrawUtils;
 #endregion
 
 namespace Aerial_Mayhem
@@ -17,6 +18,7 @@ namespace Aerial_Mayhem
     /// </summary>
     public class Game1 : Game
     {
+
         //Default screen : 480*800
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -24,6 +26,8 @@ namespace Aerial_Mayhem
         GameScenes scene;
         Player player;
         //testing...
+        BackgroundLoop loop;
+        BackgroundLoop loop3;
         TestChraracter bs;
         public Game1()
             : base()
@@ -31,6 +35,7 @@ namespace Aerial_Mayhem
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             bs = new TestChraracter(new Rectangle(100, 100, 100, 100));
+            //screen: graphics.PreferredBackBufferHeight; graphics.PreferredBackBufferWidth
         }
 
         /// <summary>
@@ -56,6 +61,10 @@ namespace Aerial_Mayhem
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             bs.LoadContent(Content);
+            Rectangle screen = new Rectangle(0, 480/ 2, 2438, 480);
+            loop = new BackgroundLoop(Content,screen , Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
+
+            loop3 = new BackgroundLoop(Content, screen, Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
             // TODO: use this.Content to load your game content here
         }
 
@@ -79,6 +88,7 @@ namespace Aerial_Mayhem
                 Exit();
 
             // TODO: Add your update logic here
+            loop.Update(gameTime);
             bs.Update(gameTime);
             base.Update(gameTime);
         }
@@ -93,6 +103,7 @@ namespace Aerial_Mayhem
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+            loop.Draw(spriteBatch);
             bs.Draw(spriteBatch);
             base.Draw(gameTime);
             spriteBatch.End();

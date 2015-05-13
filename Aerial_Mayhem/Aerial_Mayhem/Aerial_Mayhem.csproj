@@ -37,10 +37,12 @@
   <ItemGroup>
     <Compile Include="DrawUtils\AnimatedSprite.cs" />
     <Compile Include="ArrayListExtended.cs" />
+    <Compile Include="DrawUtils\Background.cs" />
     <Compile Include="DrawUtils\BasicSprite.cs" />
     <Compile Include="DrawUtils\LevelBackground.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameScenes.cs" />
+    <Compile Include="IDrawable.cs" />
     <Compile Include="Scenes\CharacterSelecto.cs" />
     <Compile Include="Scenes\GameOver.cs" />
     <Compile Include="Scenes\GameScene.cs" />
@@ -84,6 +86,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\fondo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_nivel01\fondo_fijo_nivel01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_nivel01\fondo_medio_nivel01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_nivel01\fondo_rapido_nivel01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
