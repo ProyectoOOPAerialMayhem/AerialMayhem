@@ -14,5 +14,6 @@ namespace Aerial_Mayhem.Scenes
        public abstract void Update(Microsoft.Xna.Framework.GameTime gameTime);
 
        public abstract void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch sp);
+
     }
 }
