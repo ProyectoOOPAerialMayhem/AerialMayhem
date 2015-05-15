@@ -16,6 +16,7 @@ namespace Aerial_Mayhem.DrawUtils
         SimpleSprite[] states;
         Rectangle pos;
         ButtonStates state;
+        bool active;
         /// <summary>
         /// Standar  position rectangle
         /// states[0]=normal,states[1]=rollover,state[2]=mouseDown,state[4]Active
@@ -31,20 +32,36 @@ namespace Aerial_Mayhem.DrawUtils
         {
             MouseState mouse = Mouse.GetState();
             Rectangle r = new Rectangle(mouse.X, mouse.Y, 1, 1);
-            if (r.Intersects(pos))
+            if (active)
+            {
+                state = ButtonStates.active;
+            }
+            else if (r.Intersects(pos))
             {
                 state = ButtonStates.rollover;
                 if (mouse.RightButton == ButtonState.Pressed)
                 {
-
+                    active = true;
+                    state = ButtonStates.mouseDown;
                 }
 
             }
-               
+            else
+                state = ButtonStates.normal;
+            
+        }
+        public bool Triggered()
+        {
+            return active;
+        }
+        public void Release()
+        {
+            active = false;
         }
 
         public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch sp)
         {
+            states[(int)state].Draw(sp);
         }
     }
 }

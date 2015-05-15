@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Aerial_Mayhem.DrawUtils;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,11 @@ namespace Aerial_Mayhem.Scenes
 {
     class LeaderBoard:GameScene
     {
+        Button back;
+         public LeaderBoard(ContentManager Content, GraphicsDeviceManager g)
+        {
+            bgd = new Background(Content, 0, 0, "Fondo_LeaderBoards");
+        }
         public override void Update(GameTime gameTime)
         {
 
