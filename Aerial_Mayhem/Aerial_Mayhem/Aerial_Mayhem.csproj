@@ -50,7 +50,11 @@
     <Compile Include="GameScenes.cs" />
     <Compile Include="IBasicCollision.cs" />
     <Compile Include="IDrawable.cs" />
+<<<<<<< HEAD
     <Compile Include="LinkCharacter.cs" />
+=======
+    <Compile Include="DrawUtils\Button.cs" />
+>>>>>>> b00eefd9fddbf70b0d6542f2f1eb0dd17ba2096a
     <Compile Include="Scenes\CharacterSelecto.cs" />
     <Compile Include="Scenes\GameOver.cs" />
     <Compile Include="Scenes\GameScene.cs" />
@@ -66,6 +70,7 @@
     <Compile Include="Scenes\Levels\Level3.cs" />
     <Compile Include="Scenes\OptionScreen.cs" />
     <Compile Include="Scenes\Pause.cs" />
+    <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="Scenes\StartScreen.cs" />
     <Compile Include="TestChraracter.cs" />
   </ItemGroup>
@@ -95,9 +100,46 @@
     <Content Include="Content\Boss.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Botones\btn_chico_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_chico_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_gde_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_gde_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_leader_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_leader_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_options_mormal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_options_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_play_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_play_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_select_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_select_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\bs.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+<<<<<<< HEAD
     <Content Include="Content\Bullet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -162,6 +204,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\StandRight\0001.png">
+=======
+    <Content Include="Content\Fondo_inicio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_LeadersBoards.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_options.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_Pause.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_SelectPalyer.png">
+>>>>>>> b00eefd9fddbf70b0d6542f2f1eb0dd17ba2096a
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />

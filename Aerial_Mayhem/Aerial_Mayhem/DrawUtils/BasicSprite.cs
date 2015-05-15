@@ -16,9 +16,6 @@ namespace Aerial_Mayhem.DrawUtils
 {
     public  class SimpleSprite :AbstractSprite
     {
-        //TODO abstract class Rectangle Color , radians, image?
-      
-
         //normal constructor sets the sprite position using the image height and width as default
         public SimpleSprite(ContentManager Content, int x, int y, string image)
         {
@@ -52,7 +49,7 @@ namespace Aerial_Mayhem.DrawUtils
 
                 spriteBatch.Draw(image, pos, null, color, radian, new Vector2(pos.Width / 2, pos.Height / 2), new SpriteEffects(), 0f);
         }
-     
+
        
     }
 }

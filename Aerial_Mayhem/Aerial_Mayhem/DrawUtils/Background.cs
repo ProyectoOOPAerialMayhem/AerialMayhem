@@ -11,6 +11,12 @@ namespace Aerial_Mayhem.DrawUtils
     
     public class Background :SimpleSprite,Aerial_Mayhem.IDrawable
     {
+        private ContentManager Content;
+        private int x;
+        private int y;
+        private int p;
+        private string filepath;
+
         public Background(ContentManager Content, int x, int y, string image):base(Content,x,y,image)
         {
 
@@ -20,6 +26,8 @@ namespace Aerial_Mayhem.DrawUtils
         {
             
         }
+
+      
 
 
         public override void Update(GameTime gameTime)
