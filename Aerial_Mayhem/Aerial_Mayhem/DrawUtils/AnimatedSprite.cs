@@ -67,8 +67,12 @@ namespace Aerial_Mayhem.DrawUtils
             {
                 if (play)
                     currentFrame = (currentFrame + 1) % end;
-                if(reverse)
-                    currentFrame =Math.Abs(((currentFrame*-1)+1 ) % 6);
+                if (reverse)
+                {
+
+                    currentFrame = Math.Abs(((currentFrame * -1) + 1) % 6);
+
+                }
                 timer = timer - timePerFrame;
             }
         }
