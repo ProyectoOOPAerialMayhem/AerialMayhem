@@ -14,13 +14,10 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Aerial_Mayhem.DrawUtils
 {
-    public  class SimpleSprite
+    public  class SimpleSprite :AbstractSprite
     {
         //TODO abstract class Rectangle Color , radians, image?
-        protected Texture2D image;
-        protected Color color = Color.White;
-        protected Rectangle pos;
-        protected float radian = 0;
+      
 
         //normal constructor sets the sprite position using the image height and width as default
         public SimpleSprite(ContentManager Content, int x, int y, string image)
@@ -42,40 +39,20 @@ namespace Aerial_Mayhem.DrawUtils
             this.pos = pos;
         }
 
-        public void Rotate(float radIncr)
-        {
-
-            radian += radIncr;
-
-        }
         //updates all the states of the basicsprite
 
-        public virtual void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             // draws the sprite to screen using the spriteBatch.Draw() method and it's arguments 
             //see https://msdn.microsoft.com/en-us/library/ff433992.aspx for more info
 
                 spriteBatch.Draw(image, pos, null, color, radian, new Vector2(pos.Width / 2, pos.Height / 2), new SpriteEffects(), 0f);
         }
-        public Rectangle Pos
-        {
-            get { return pos; }
-            set { pos = value; }
-        }
-        public Color Color
-        {
-            get { return color; }
-            set { color = value; }
-        }
-        public float Radian
-        {
-            get { return radian; }
-            set { radian = value; }
-        }
+     
        
     }
 }

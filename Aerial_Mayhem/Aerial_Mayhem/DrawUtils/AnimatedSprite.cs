@@ -14,19 +14,19 @@ using Microsoft.Xna.Framework.Media;
 namespace Aerial_Mayhem.DrawUtils
 {
  
-    public class AnimatedSprite
+    public class AnimatedSprite : AbstractSprite
     {
         // Attributes
-       protected Texture2D image;
-       protected Rectangle pos;
        protected Rectangle frame;
        protected Rectangle test; 
        protected SpriteSheet sp;
-       protected float radian;
        protected int currentFrame;
+       protected int start;
+       protected int stop;
        protected float timePerFrame;
        protected float timer;
        bool play=true;
+       bool loop;
 
 
         // Methods
@@ -42,24 +42,16 @@ namespace Aerial_Mayhem.DrawUtils
             currentFrame = 0; 
             this.timePerFrame = timeperFrame; 
             timer = 0.0f;
+            loop=true;
         }
-        public  Rectangle Pos
-        {
-            set { pos = value; }
-            get { return pos; }
-        }
-        public void Rotate(float radIncr)
-        {
-
-            radian += radIncr;
-
-        }
+       
         public void Stop(int frame)
         {
+            play = false;
             currentFrame = frame;
         }
 
-        public virtual void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -73,7 +65,7 @@ namespace Aerial_Mayhem.DrawUtils
             }
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
 
             frame.Y = frame.Height * (currentFrame / sp.HorizontalFrames % sp.VerticalFrames);

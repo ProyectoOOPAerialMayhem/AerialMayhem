@@ -21,10 +21,12 @@ namespace Aerial_Mayhem.DrawUtils
             get;
             set;
         }
-        public BackgroundLoop(ContentManager Content,Rectangle pos,Color color, int speed,string filepath )
+        public BackgroundLoop(ContentManager Content,int x,int y, int speed,string filepath )
         {
+            
+            bgd = new Background(Content,x,y,filepath);
+            Rectangle pos = bgd.Pos;
             pos1 = pos;
-            bgd = new Background(Content,pos,0,color,filepath);
             centerX = pos.Width / 2;
             pos2 = new Rectangle(pos.X+pos.Width,pos.Y,pos.Width,pos.Height);
             Speed = speed;
