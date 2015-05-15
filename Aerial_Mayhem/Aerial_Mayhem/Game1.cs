@@ -135,11 +135,11 @@ namespace Aerial_Mayhem
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) && canDrop && conBalas)
             {
-                float x = link1.Pos.X;               
-                float y = link1.Pos.Y;
+                float x = link1.Pos.X*2;               
+                float y = link1.Pos.Y*2;
                 canDrop = false;
                 BasicSprite bala = new BasicSprite();
-                bala.Init(Content, "Bullet.png");
+                bala.LoadContent(Content, (int)x,(int)y, 50,50,"Bullet.png");
                 bala.SetIncrement(new Rectangle(4, 0, 50, 50));
                 bala.SetAutomove(true);
                 disparos.Add(bala);

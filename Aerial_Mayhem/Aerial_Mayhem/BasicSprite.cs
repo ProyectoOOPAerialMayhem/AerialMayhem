@@ -26,6 +26,15 @@ namespace Aerial_Mayhem
             image = Content.Load<Texture2D>(name);
             pos = new Rectangle(0, 0, image.Width, image.Height);
         }
+
+        public void LoadContent(ContentManager Content, int x, int y, int width, int height, string name)
+        {
+            image = Content.Load<Texture2D>(name);
+
+            pos = new Rectangle(x, y, width, height);
+
+        }
+
         public void SetIncrement(Rectangle incIn)
         {
             inc = incIn;
