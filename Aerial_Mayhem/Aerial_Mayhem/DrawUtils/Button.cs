@@ -6,11 +6,15 @@ using System.Text;
 
 namespace Aerial_Mayhem.DrawUtils
 {
+    enum ButtonStates 
+    { 
+
+    }
     public class Button :IDrawable
     {
         SimpleSprite[] states;
         Rectangle pos;
-        public Button()
+        public Button(Rectangle pos)
         {
 
         }

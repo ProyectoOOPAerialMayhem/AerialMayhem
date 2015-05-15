@@ -25,8 +25,9 @@ namespace Aerial_Mayhem.DrawUtils
        protected int end;
        protected float timePerFrame;
        protected float timer;
-       bool play=true;
+       bool play;
        bool loop;
+       bool reverse;
 
 
         // Methods
@@ -34,12 +35,17 @@ namespace Aerial_Mayhem.DrawUtils
         public  AnimatedSprite(ContentManager Content, Rectangle position,SpriteSheet sp, float timeperFrame)
         {
             this.sp = sp;
+            reverse = true;
             image = Content.Load<Texture2D>(sp.FilePath);
             pos = position;
             //new frame starting at initial position dependent of hrizontal frames and vertical ones 
             frame = new Rectangle(0,0,image.Width/sp.HorizontalFrames,image.Height/sp.VerticalFrames);
             test = frame;
-            currentFrame = 0; 
+            loop = true;
+            start = 0;
+            end = sp.FrameCount;
+            //TODO change loop
+            currentFrame = start; 
             this.timePerFrame = timeperFrame; 
             timer = 0.0f;
             loop=true;
@@ -60,7 +66,9 @@ namespace Aerial_Mayhem.DrawUtils
             if (timer >= timePerFrame)
             {
                 if (play)
-                    currentFrame = (currentFrame + 1) % sp.FrameCount;
+                    currentFrame = (currentFrame + 1) % end;
+                if(reverse)
+                    currentFrame =Math.Abs(((currentFrame*-1)+1 ) % 6);
                 timer = timer - timePerFrame;
             }
         }

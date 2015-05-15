@@ -14,16 +14,8 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Aerial_Mayhem.DrawUtils
 {
-<<<<<<< HEAD
-    public  class SimpleSprite : AbstractSprite
-    {
-=======
     public  class SimpleSprite :AbstractSprite
     {
-        //TODO abstract class Rectangle Color , radians, image?
-      
-
->>>>>>> 0db1f7b3c8e74f5e2fa176a89bc9d7b88be32d04
         //normal constructor sets the sprite position using the image height and width as default
         public SimpleSprite(ContentManager Content, int x, int y, string image)
         {
@@ -44,10 +36,6 @@ namespace Aerial_Mayhem.DrawUtils
             this.pos = pos;
         }
 
-<<<<<<< HEAD
-       
-=======
->>>>>>> 0db1f7b3c8e74f5e2fa176a89bc9d7b88be32d04
         //updates all the states of the basicsprite
 
         public override void Update(GameTime gameTime)
@@ -61,11 +49,7 @@ namespace Aerial_Mayhem.DrawUtils
 
                 spriteBatch.Draw(image, pos, null, color, radian, new Vector2(pos.Width / 2, pos.Height / 2), new SpriteEffects(), 0f);
         }
-<<<<<<< HEAD
-      
-=======
-     
->>>>>>> 0db1f7b3c8e74f5e2fa176a89bc9d7b88be32d04
+
        
     }
 }
