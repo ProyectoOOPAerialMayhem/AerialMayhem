@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,18 @@ namespace Aerial_Mayhem.DrawUtils
         }
         public void Update(GameTime gameTime)
         {
+            MouseState mouse = Mouse.GetState();
+            Rectangle r = new Rectangle(mouse.X, mouse.Y, 1, 1);
+            if (r.Intersects(pos))
+            {
+                state = ButtonStates.rollover;
+                if (mouse.RightButton == ButtonState.Pressed)
+                {
 
+                }
+
+            }
+               
         }
 
         public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch sp)
