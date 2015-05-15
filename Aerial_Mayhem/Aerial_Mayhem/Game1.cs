@@ -183,14 +183,14 @@ namespace Aerial_Mayhem
             for (int b = 0; b < proyectiles.Count; b++)
             {
                 cols=link1.CheckCollision((BasicSprite)proyectiles[b]);
-                if (cols)
-                {
-                    life = life - 1;
-                    break;
-                }
-                link1.CheckCollision(sprite1);
+                    if (cols)
+                    {
+                        life = life - 1;
+                        break;
+                    }
+                        link1.CheckCollision(sprite1);
             }
-            link1.CheckCollision(sprite1);
+                            link1.CheckCollision(sprite1);
             //minions
 
             for (int b = 0; b < minions.Count; b++)
@@ -204,14 +204,14 @@ namespace Aerial_Mayhem
             for (int c = 0; c < minions.Count; c++)
             {
                 cols2 = link1.CheckCollision((BasicSprite)minions[c]);
-                if (cols2)
-                {
-                    life = life - 100;
-                    break;
-                }
-                link1.CheckCollision(sprite1);
+                    if (cols2)
+                    {
+                        life = life - 100;
+                        break;
+                    }
+                        link1.CheckCollision(sprite1);
             }
-            link1.CheckCollision(sprite1);
+                             link1.CheckCollision(sprite1);
             //fire
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) && canDrop && conBalas)
@@ -258,10 +258,10 @@ namespace Aerial_Mayhem
             {
                 cols3 = sprite1.CheckCollision((BasicSprite)disparos[o]);
                 if (cols3)
-                {
-                    sprite1.Draw(spriteBatch, Color.Red);
-                    break;
-                }
+                    {
+                        sprite1.Draw(spriteBatch, Color.Red);
+                        break;
+                    }
             }
 
 
@@ -297,13 +297,15 @@ namespace Aerial_Mayhem
             spriteBatch.Begin();
             loop.Draw(spriteBatch);
             //bs.Draw(spriteBatch);
+            
             spriteBatch.End();
 
             link1.Draw(spriteBatch);
-            
 
-            sprite1.Draw(spriteBatch);
-
+            if (cols3)
+                sprite1.Draw(spriteBatch, Color.Red);
+            else
+                sprite1.Draw(spriteBatch);
 
             for (int m = 0; m < proyectiles.Count; m++)
             {
