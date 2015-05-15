@@ -17,6 +17,7 @@ namespace Aerial_Mayhem
         bool drawPosition;
         Color linkColor;
         AnimatedCharacter link;
+        
 
         public LinkCharacter()
         {
@@ -54,7 +55,10 @@ namespace Aerial_Mayhem
 
         public void Update(GameTime gametime, KeyboardState kbs)
         {
+            
             link.Update(gametime, kbs);
+            
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -92,6 +96,7 @@ namespace Aerial_Mayhem
                 // TO DO - eg draw position
                 drawPosition = true;
                 linkColor = Color.Red;
+                
             }
             else
             {

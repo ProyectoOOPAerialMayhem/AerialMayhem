@@ -40,7 +40,8 @@ namespace Aerial_Mayhem
 
         bool conBalas = true;
         bool canDrop = true;
-        
+        bool cols = false;
+        int life = 500;
 
         public Game1()
             : base()
@@ -87,12 +88,13 @@ namespace Aerial_Mayhem
             link1.LoadContent(Content, Keys.Left, Keys.Right, Keys.Up, Keys.Down);
             link1.Pos = new Vector2(100, 100);
 
-            sprite1.Init(Content, "enemy");
+            sprite1.Init(Content, "Boss.png");
             sprite1.SetAutomove(true);
             sprite1.SetIncrement(new Rectangle(-2, 0, 50, 50));
 
             Rectangle temp = sprite1.Pos;
-            temp.X = 200;
+            temp.X = 2500;
+            temp.Y = 0;
             sprite1.Pos = temp;
 
 //Arreglos
@@ -103,7 +105,7 @@ namespace Aerial_Mayhem
             {
 
                 BasicSprite enemy = new BasicSprite();
-                enemy.LoadContent(Content, a * 300 + 700, a * 100 + 40, 50, 50, "enemy.png");
+                enemy.LoadContent(Content, a * 300 + 700, a * 100 + 40, 50, 50, "0039.png");
                 enemy.SetAutomove(true);
                 enemy.SetIncrement(new Rectangle(-2, 0, 900, 50));
                 proyectiles.Add(enemy);
@@ -135,13 +137,17 @@ namespace Aerial_Mayhem
             loop.Update(gameTime);
             bs.Update(gameTime);
 
+            int stop;
+            stop = sprite1.GetRectangle().X;
 
-            sprite1.Update(gameTime);
-
+            if (stop >= 500)
+                sprite1.Update(gameTime);
+            
             // TODO: Add your update logic here
+            if(life>0)
             link1.Update(gameTime, Keyboard.GetState());
 
-            link1.CheckCollision(sprite1);
+            
 
 
             //arrelos de balas y enemigos
@@ -150,18 +156,24 @@ namespace Aerial_Mayhem
             {
                 
                 BasicSprite enemy;
-                enemy = (BasicSprite)proyectiles[b];
-                link1.CheckCollision((BasicSprite)proyectiles[b]);
-                enemy.Update(gameTime);    
-                
-               
+                enemy = (BasicSprite)proyectiles[b];              
+                enemy.Update(gameTime);                                 
             }
-            
+
+            for (int b = 0; b < proyectiles.Count; b++)
+            {
+                cols=link1.CheckCollision((BasicSprite)proyectiles[b]);
+                if (cols)
+                {                   
+                    break;
+                }
+                link1.CheckCollision(sprite1);
+            }
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) && canDrop && conBalas)
             {
-                float x = link1.Pos.X*2;               
-                float y = link1.Pos.Y*2;
+                float x = link1.Pos.X;               
+                float y = link1.Pos.Y+100;
                 canDrop = false;
                 BasicSprite bala = new BasicSprite();
                 bala.LoadContent(Content, (int)x,(int)y, 50,50,"Bullet.png");
@@ -196,6 +208,7 @@ namespace Aerial_Mayhem
             if (disparos.Count == 10) conBalas = false;
             else conBalas = true;
 
+           
 
             //Collisiones Enemigos
             
