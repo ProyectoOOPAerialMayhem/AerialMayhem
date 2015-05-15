@@ -35,11 +35,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AbstractSprite.cs" />
-    <Compile Include="AnimatedCharacter.cs" />
-    <Compile Include="BasicAnimatedSprite.cs" />
-    <Compile Include="BasicCollision.cs" />
-    <Compile Include="BasicSprite.cs" />
     <Compile Include="DrawUtils\AbstractSprite.cs" />
     <Compile Include="DrawUtils\AnimatedSprite.cs" />
     <Compile Include="ArrayListExtended.cs" />
@@ -48,9 +43,8 @@
     <Compile Include="DrawUtils\LevelBackground.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameScenes.cs" />
-    <Compile Include="IBasicCollision.cs" />
     <Compile Include="IDrawable.cs" />
-    <Compile Include="LinkCharacter.cs" />
+    <Compile Include="DrawUtils\Button.cs" />
     <Compile Include="Scenes\CharacterSelecto.cs" />
     <Compile Include="Scenes\GameOver.cs" />
     <Compile Include="Scenes\GameScene.cs" />
@@ -66,6 +60,7 @@
     <Compile Include="Scenes\Levels\Level3.cs" />
     <Compile Include="Scenes\OptionScreen.cs" />
     <Compile Include="Scenes\Pause.cs" />
+    <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="Scenes\StartScreen.cs" />
     <Compile Include="TestChraracter.cs" />
   </ItemGroup>
@@ -86,22 +81,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\0039.png">
+    <Content Include="..\..\..\..\..\..\..\Program Files\MonoGame\v3.0\Assemblies\WindowsGL\SDL.dll">
+      <Link>SDL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Boss.png">
+    <Content Include="Content\Botones\btn_chico_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_chico_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_gde_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_gde_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_leader_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_leader_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_options_mormal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_options_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_play_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_play_sobre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_select_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Botones\btn_select_sobre.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\bs.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Bullet.png">
+    <Content Include="Content\Fondo_inicio.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\enemy.png">
+    <Content Include="Content\Fondo_LeadersBoards.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\fondo.png">
+    <Content Include="Content\Fondo_options.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_Pause.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fondo_SelectPalyer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
@@ -115,74 +150,6 @@
     </None>
     <None Include="Content\Fondo_nivel01\fondo_rapido_nivel01.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneDown\0001.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGDown\0001.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGDown\0002.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGDown\0003.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGDown\0004.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGUp\0001.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGUp\0002.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGUp\0003.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGUp\0004.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGUp\0005.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGUp\0006.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneGUp\0007.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneLeft\0001.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneLeft\0002.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneLeft\0003.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneRight\0001.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneRight\0002.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneRight\0003.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlaneUp\0001.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\StandLeft\0001.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\StandRight\0001.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\0009.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icon.ico" />
     </None>
     <None Include="Content\Fondo_nivel02\fondo_lento_nivel02.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
