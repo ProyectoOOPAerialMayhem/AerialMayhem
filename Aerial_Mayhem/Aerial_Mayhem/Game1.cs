@@ -33,7 +33,16 @@ namespace Aerial_Mayhem
 
         LinkCharacter link1, link2;
         BasicSprite sprite1;
+        ArrayList disparos;
+      
+        BasicSprite bala;
 
+
+        bool conBalas = true;
+        bool canDrop = true;
+        int x = 200;
+        int y = -95;
+        int z = 0;
 
         public Game1()
             : base()
@@ -54,7 +63,7 @@ namespace Aerial_Mayhem
         {
             // TODO: Add your initialization logic here
             link1 = new LinkCharacter();
-           
+            bala = new BasicSprite();
             sprite1 = new BasicSprite();
 
             base.Initialize();
@@ -88,6 +97,9 @@ namespace Aerial_Mayhem
             Rectangle temp = sprite1.Pos;
             temp.X = 200;
             sprite1.Pos = temp;
+
+            disparos = new ArrayList();
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -119,12 +131,45 @@ namespace Aerial_Mayhem
 
             // TODO: Add your update logic here
             link1.Update(gameTime, Keyboard.GetState());
-          
-
-            
-
             link1.CheckCollision(sprite1);
-            
+
+            if (Keyboard.GetState().IsKeyDown(Keys.A) && canDrop && conBalas)
+            {
+                float x = link1.Pos.X;               
+                float y = link1.Pos.Y;
+                canDrop = false;
+                BasicSprite bala = new BasicSprite();
+                bala.Init(Content, "Bullet.png");
+                bala.SetIncrement(new Rectangle(4, 0, 50, 50));
+                bala.SetAutomove(true);
+                disparos.Add(bala);
+
+
+            }
+
+            else if (Keyboard.GetState().IsKeyUp(Keys.C))
+            {
+                canDrop = true;
+            }
+
+            for (int k = 0; k < disparos.Count; k++)
+            {
+                BasicSprite bala;
+                bala = (BasicSprite)disparos[k];
+                bala.Update(gameTime);
+            }
+
+            for (int k = 0; k < disparos.Count; k++)
+            {
+                BasicSprite bala = (BasicSprite)disparos[k];
+                int pos = bala.GetRectangle().X;
+                pos = bala.GetRectangle().X + 3;
+                disparos[k] = bala;
+                if (bala.GetRectangle().X > 800) disparos.RemoveAt(k);
+            }
+
+            if (disparos.Count == 10) conBalas = false;
+            else conBalas = true;
 
 
 
@@ -151,6 +196,12 @@ namespace Aerial_Mayhem
 
             sprite1.Draw(spriteBatch);
 
+            for (int k = 0; k < disparos.Count; k++)
+            {
+                BasicSprite bala;
+                bala = (BasicSprite)disparos[k];
+                bala.Draw(spriteBatch, Color.White);
+            }
 
             base.Draw(gameTime);
             
