@@ -61,10 +61,9 @@ namespace Aerial_Mayhem
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             bs.LoadContent(Content);
-            Rectangle screen = new Rectangle(0, 480/ 2, 2438, 480);
-            loop = new BackgroundLoop(Content,screen , Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
+            loop = new BackgroundLoop(Content,0,240, 2,"./Fondo_nivel01/fondo_medio_nivel01");
 
-            loop3 = new BackgroundLoop(Content, screen, Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
+            //loop3 = new BackgroundLoop(Content, screen, Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
             // TODO: use this.Content to load your game content here
         }
 

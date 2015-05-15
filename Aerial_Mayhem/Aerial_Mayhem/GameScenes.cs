@@ -8,6 +8,6 @@ namespace Aerial_Mayhem
 {
     enum GameScenes
     {
-        StartScreen, OptionScreen, CharacterSlector, LevelSelector, Pause, GameOver,Level,Level2,Level3
+        StartScreen, OptionScreen, CharacterSlector, LevelSelector, Pause, GameOver,Level1,Level2,Level3
     }
 }
