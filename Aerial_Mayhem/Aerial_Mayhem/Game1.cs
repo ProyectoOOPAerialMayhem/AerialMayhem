@@ -1,5 +1,6 @@
 ﻿#region Using Statements
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -29,6 +30,11 @@ namespace Aerial_Mayhem
         BackgroundLoop loop;
         BackgroundLoop loop3;
         TestChraracter bs;
+
+        LinkCharacter link1, link2;
+        BasicSprite sprite1;
+
+
         public Game1()
             : base()
         {
@@ -47,6 +53,9 @@ namespace Aerial_Mayhem
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            link1 = new LinkCharacter();
+           
+            sprite1 = new BasicSprite();
 
             base.Initialize();
 
@@ -65,6 +74,20 @@ namespace Aerial_Mayhem
             loop = new BackgroundLoop(Content,screen , Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
 
             loop3 = new BackgroundLoop(Content, screen, Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
+
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            link1.LoadContent(Content, Keys.Left, Keys.Right, Keys.Up, Keys.Down);
+           
+
+            link1.Pos = new Vector2(100, 100);
+
+            sprite1.Init(Content, "enemy");
+            sprite1.SetAutomove(true);
+            sprite1.SetIncrement(new Rectangle(-2, 0, 50, 50));
+
+            Rectangle temp = sprite1.Pos;
+            temp.X = 200;
+            sprite1.Pos = temp;
             // TODO: use this.Content to load your game content here
         }
 
@@ -90,6 +113,22 @@ namespace Aerial_Mayhem
             // TODO: Add your update logic here
             loop.Update(gameTime);
             bs.Update(gameTime);
+
+
+            sprite1.Update(gameTime);
+
+            // TODO: Add your update logic here
+            link1.Update(gameTime, Keyboard.GetState());
+          
+
+            
+
+            link1.CheckCollision(sprite1);
+            
+
+
+
+
             base.Update(gameTime);
         }
 
@@ -104,9 +143,17 @@ namespace Aerial_Mayhem
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             loop.Draw(spriteBatch);
-            bs.Draw(spriteBatch);
-            base.Draw(gameTime);
+            //bs.Draw(spriteBatch);
             spriteBatch.End();
+
+            link1.Draw(spriteBatch);
+            
+
+            sprite1.Draw(spriteBatch);
+
+
+            base.Draw(gameTime);
+            
         }
     }
 }
