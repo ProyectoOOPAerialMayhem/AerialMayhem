@@ -31,18 +31,16 @@ namespace Aerial_Mayhem
         BackgroundLoop loop3;
         TestChraracter bs;
 
-        LinkCharacter link1, link2;
+        LinkCharacter link1;
         BasicSprite sprite1;
         ArrayList disparos;
-      
+        ArrayList proyectiles;
         BasicSprite bala;
 
 
         bool conBalas = true;
         bool canDrop = true;
-        int x = 200;
-        int y = -95;
-        int z = 0;
+        
 
         public Game1()
             : base()
@@ -64,6 +62,7 @@ namespace Aerial_Mayhem
             // TODO: Add your initialization logic here
             link1 = new LinkCharacter();
             bala = new BasicSprite();
+            
             sprite1 = new BasicSprite();
 
             base.Initialize();
@@ -84,10 +83,8 @@ namespace Aerial_Mayhem
 
             loop3 = new BackgroundLoop(Content, screen, Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
 
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            link1.LoadContent(Content, Keys.Left, Keys.Right, Keys.Up, Keys.Down);
            
-
+            link1.LoadContent(Content, Keys.Left, Keys.Right, Keys.Up, Keys.Down);
             link1.Pos = new Vector2(100, 100);
 
             sprite1.Init(Content, "enemy");
@@ -98,8 +95,20 @@ namespace Aerial_Mayhem
             temp.X = 200;
             sprite1.Pos = temp;
 
+//Arreglos
+            proyectiles = new ArrayList(); 
             disparos = new ArrayList();
-            
+
+            for (int a = 0; a < 4; a++)
+            {
+
+                BasicSprite enemy = new BasicSprite();
+                enemy.LoadContent(Content, a * 300 + 700, a * 100 + 40, 50, 50, "enemy.png");
+                enemy.SetAutomove(true);
+                enemy.SetIncrement(new Rectangle(-2, 0, 900, 50));
+                proyectiles.Add(enemy);
+
+            }
             // TODO: use this.Content to load your game content here
         }
 
@@ -131,7 +140,23 @@ namespace Aerial_Mayhem
 
             // TODO: Add your update logic here
             link1.Update(gameTime, Keyboard.GetState());
+
             link1.CheckCollision(sprite1);
+
+
+            //arrelos de balas y enemigos
+
+            for (int b = 0; b < proyectiles.Count; b++)
+            {
+                
+                BasicSprite enemy;
+                enemy = (BasicSprite)proyectiles[b];
+                link1.CheckCollision((BasicSprite)proyectiles[b]);
+                enemy.Update(gameTime);    
+                
+               
+            }
+            
 
             if (Keyboard.GetState().IsKeyDown(Keys.A) && canDrop && conBalas)
             {
@@ -172,6 +197,12 @@ namespace Aerial_Mayhem
             else conBalas = true;
 
 
+            //Collisiones Enemigos
+            
+
+            
+
+
 
 
             base.Update(gameTime);
@@ -195,6 +226,15 @@ namespace Aerial_Mayhem
             
 
             sprite1.Draw(spriteBatch);
+
+
+            for (int m = 0; m < proyectiles.Count; m++)
+            {
+                BasicSprite enemy;
+                enemy = (BasicSprite)proyectiles[m];
+                enemy.Draw(spriteBatch, Color.White);
+
+            }
 
             for (int k = 0; k < disparos.Count; k++)
             {
