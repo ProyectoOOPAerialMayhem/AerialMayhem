@@ -50,12 +50,28 @@
     <Compile Include="GameScenes.cs" />
     <Compile Include="IBasicCollision.cs" />
     <Compile Include="IDrawable.cs" />
+<<<<<<< HEAD
     <Compile Include="LinkCharacter.cs" />
+=======
     <Compile Include="DrawUtils\Button.cs" />
+>>>>>>> b00eefd9fddbf70b0d6542f2f1eb0dd17ba2096a
+    <Compile Include="Scenes\CharacterSelecto.cs" />
+    <Compile Include="Scenes\GameOver.cs" />
+    <Compile Include="Scenes\GameScene.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DrawUtils\SpriteSheet.cs" />
+    <Compile Include="Scenes\LeaderBoard.cs" />
+    <Compile Include="Scenes\Levels\Level.cs" />
+    <Compile Include="Scenes\LevelSelector.cs" />
+    <Compile Include="Scenes\Levels\Level1.cs" />
+    <Compile Include="Scenes\Levels\Level2.cs" />
+    <Compile Include="Scenes\Levels\Level3.cs" />
+    <Compile Include="Scenes\OptionScreen.cs" />
+    <Compile Include="Scenes\Pause.cs" />
+    <Compile Include="Scenes\SceneManager.cs" />
+    <Compile Include="Scenes\StartScreen.cs" />
     <Compile Include="TestChraracter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +139,7 @@
     <Content Include="Content\bs.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+<<<<<<< HEAD
     <Content Include="Content\Bullet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -187,7 +204,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\StandRight\0001.png">
-    </Content>
+=======
     <Content Include="Content\Fondo_inicio.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -201,6 +218,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Fondo_SelectPalyer.png">
+>>>>>>> b00eefd9fddbf70b0d6542f2f1eb0dd17ba2096a
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
