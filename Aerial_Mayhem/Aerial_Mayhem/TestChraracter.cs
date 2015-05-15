@@ -26,7 +26,7 @@ namespace Aerial_Mayhem
         }
         public void LoadContent(ContentManager Content ){
             SpriteSheet sp = new SpriteSheet("bs",4,2,8);
-            animation = new AnimatedSprite(Content,pos,sp,0.05f);
+            animation = new AnimatedSprite(Content,pos,sp,0.7f);
         }
         public void Update(GameTime gameTime)
         {
