@@ -13,8 +13,8 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Aerial_Mayhem.DrawUtils
 {
- 
-    public class AnimatedSprite :AbstractSprite
+
+    public class AnimatedSprite : AbstractSprite
     {
         // Attributes
        protected Rectangle frame;
@@ -27,7 +27,6 @@ namespace Aerial_Mayhem.DrawUtils
        protected float timer;
        bool play=true;
        bool loop;
-
 
 
         // Methods
@@ -43,8 +42,8 @@ namespace Aerial_Mayhem.DrawUtils
             currentFrame = 0; 
             this.timePerFrame = timeperFrame; 
             timer = 0.0f;
+            loop=true;
         }
-     
         public void Stop(int frame)
         {
             play = false;

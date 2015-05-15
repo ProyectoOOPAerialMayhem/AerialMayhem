@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,9 @@ using System.Text;
 
 namespace Aerial_Mayhem.DrawUtils
 {
-     public abstract class  AbstractSprite :IDrawable
+
+     
+    public abstract class AbstractSprite :IDrawable
     {
 
         protected Texture2D image;
