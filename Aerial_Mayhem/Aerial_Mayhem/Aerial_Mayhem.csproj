@@ -50,7 +50,6 @@
     <Compile Include="GameScenes.cs" />
     <Compile Include="IBasicCollision.cs" />
     <Compile Include="IDrawable.cs" />
-    <Compile Include="DrawUtils\Button.cs" />
     <Compile Include="LinkCharacter.cs" />
     <Compile Include="Scenes\CharacterSelecto.cs" />
     <Compile Include="Scenes\GameOver.cs" />
@@ -67,7 +66,6 @@
     <Compile Include="Scenes\Levels\Level3.cs" />
     <Compile Include="Scenes\OptionScreen.cs" />
     <Compile Include="Scenes\Pause.cs" />
-    <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="Scenes\StartScreen.cs" />
     <Compile Include="TestChraracter.cs" />
   </ItemGroup>
