@@ -50,8 +50,11 @@
     <Compile Include="GameScenes.cs" />
     <Compile Include="IBasicCollision.cs" />
     <Compile Include="IDrawable.cs" />
+<<<<<<< HEAD
     <Compile Include="LinkCharacter.cs" />
+=======
     <Compile Include="DrawUtils\Button.cs" />
+>>>>>>> b00eefd9fddbf70b0d6542f2f1eb0dd17ba2096a
     <Compile Include="Scenes\CharacterSelecto.cs" />
     <Compile Include="Scenes\GameOver.cs" />
     <Compile Include="Scenes\GameScene.cs" />
@@ -136,6 +139,7 @@
     <Content Include="Content\bs.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+<<<<<<< HEAD
     <Content Include="Content\Bullet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -200,6 +204,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\StandRight\0001.png">
+=======
     <Content Include="Content\Fondo_inicio.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -213,6 +218,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Fondo_SelectPalyer.png">
+>>>>>>> b00eefd9fddbf70b0d6542f2f1eb0dd17ba2096a
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
