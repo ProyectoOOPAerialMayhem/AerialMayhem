@@ -121,13 +121,13 @@ namespace Aerial_Mayhem
 
             }
 
-            for (int d = 0; d < 4; d++)
+            for (int d = 0; d < 10; d++)
             {
 
                 BasicSprite evilmen = new BasicSprite();
-                evilmen.LoadContent(Content, d * 2500 + 700, d*100 +30, 50, 50, "0009.png");
+                evilmen.LoadContent(Content, d * 3000 + 700, d*50 +30, 50, 50, "0009.png");
                 evilmen.SetAutomove(true);
-                evilmen.SetIncrement(new Rectangle(-5, 0, 900, 50));
+                evilmen.SetIncrement(new Rectangle(-10, 0, 900, 50));
                 minions.Add(evilmen);
 
             }
@@ -300,7 +300,10 @@ namespace Aerial_Mayhem
             
             spriteBatch.End();
 
-            link1.Draw(spriteBatch);
+            if(cols)
+                link1.Draw(spriteBatch,Color.Red);
+            else
+                link1.Draw(spriteBatch);
 
             if (cols3)
                 sprite1.Draw(spriteBatch, Color.Red);

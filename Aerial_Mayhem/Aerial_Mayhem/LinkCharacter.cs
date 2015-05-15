@@ -68,6 +68,13 @@ namespace Aerial_Mayhem
             //if (drawPosition)
             //    link.DrawPosition(spriteBatch);
         }
+        public void Draw(SpriteBatch spriteBatch, Color color)
+        {
+            link.Draw(spriteBatch, color);
+
+            //if (drawPosition)
+            //    link.DrawPosition(spriteBatch);
+        }
 
         // -------------------------------------------------------------------------------------------
         // Basic Collision methods inherited from INTERFACE
