@@ -45,7 +45,7 @@ namespace Aerial_Mayhem
         bool cols2 = false;
         bool cols3 = false;
         int life = 200;
-        
+        int cos = 0;
          
 
         public Game1()
@@ -253,13 +253,15 @@ namespace Aerial_Mayhem
 
             }
 
-
+            
             for (int o = 0; o < disparos.Count; o++)
             {
                 cols3 = sprite1.CheckCollision((BasicSprite)disparos[o]);
                 if (cols3)
                     {
                         sprite1.Draw(spriteBatch, Color.Red);
+                        
+                        cos++;
                         break;
                     }
             }
@@ -300,7 +302,7 @@ namespace Aerial_Mayhem
             
             spriteBatch.End();
 
-            if(cols)
+            if(cols || life < 0)
                 link1.Draw(spriteBatch,Color.Red);
             else
                 link1.Draw(spriteBatch);
@@ -309,6 +311,11 @@ namespace Aerial_Mayhem
                 sprite1.Draw(spriteBatch, Color.Red);
             else
                 sprite1.Draw(spriteBatch);
+
+            
+
+            
+
 
             for (int m = 0; m < proyectiles.Count; m++)
             {
@@ -325,13 +332,22 @@ namespace Aerial_Mayhem
                 evilmen.Draw(spriteBatch, Color.White);
 
             }
-
-            for (int k = 0; k < disparos.Count; k++)
+            if (cos < 100)
             {
-                BasicSprite bala;
-                bala = (BasicSprite)disparos[k];
-                bala.Draw(spriteBatch, Color.White);
+
+                for (int k = 0; k < disparos.Count; k++)
+                {
+                    BasicSprite bala;
+                    bala = (BasicSprite)disparos[k];
+                    bala.Draw(spriteBatch, Color.White);
+                }
             }
+            else
+            {
+                sprite1.Draw(spriteBatch, Color.Black);
+                Exit();
+            }
+
 
             base.Draw(gameTime);
             
