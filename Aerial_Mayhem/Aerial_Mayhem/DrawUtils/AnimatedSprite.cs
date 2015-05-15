@@ -21,40 +21,87 @@ namespace Aerial_Mayhem.DrawUtils
        protected Rectangle test; 
        protected SpriteSheet sp;
        protected int currentFrame;
-       protected int start;
-       protected int end;
        protected float timePerFrame;
        protected float timer;
-       bool play;
-       bool loop;
-       bool reverse;
-
+       public bool Play { get; set; }
+       public bool Loop { get; set; }
+       public bool Reverse { get; set; }
+       public int Start { get; set; }
+       public int End { get; set; }
 
         // Methods
 
         public  AnimatedSprite(ContentManager Content, Rectangle position,SpriteSheet sp, float timeperFrame)
         {
             this.sp = sp;
-            reverse = true;
+            Reverse = true;
             image = Content.Load<Texture2D>(sp.FilePath);
             pos = position;
             //new frame starting at initial position dependent of hrizontal frames and vertical ones 
             frame = new Rectangle(0,0,image.Width/sp.HorizontalFrames,image.Height/sp.VerticalFrames);
             test = frame;
-            loop = true;
-            start = 0;
-            end = sp.FrameCount;
-            //TODO change loop
-            currentFrame = start; 
+            Loop = true;
+            Start = 0;
+            End = sp.FrameCount;
+            //TODO change Loop
+            currentFrame = Start; 
             this.timePerFrame = timeperFrame; 
             timer = 0.0f;
-            loop=true;
+            Loop=true;
         }
-        public void Stop(int frame)
+        public AnimatedSprite(ContentManager Content, Rectangle position, SpriteSheet sp, float timeperFrame,bool loop)
         {
-            play = false;
-            currentFrame = frame;
-            
+            this.sp = sp;
+            Reverse = true;
+            image = Content.Load<Texture2D>(sp.FilePath);
+            pos = position;
+            //new frame starting at initial position dependent of hrizontal frames and vertical ones 
+            frame = new Rectangle(0, 0, image.Width / sp.HorizontalFrames, image.Height / sp.VerticalFrames);
+            test = frame;
+            loop = true;
+            Start = 0;
+            End = sp.FrameCount;
+            //TODO change Loop
+            currentFrame = Start;
+            this.timePerFrame = timeperFrame;
+            timer = 0.0f;
+            this.Loop = loop;
+        }
+        public AnimatedSprite(ContentManager Content, Rectangle position, SpriteSheet sp, float timeperFrame,int startFrame,int endFrame)
+        {
+            this.sp = sp;
+            Reverse = true;
+            image = Content.Load<Texture2D>(sp.FilePath);
+            pos = position;
+            //new frame starting at initial position dependent of hrizontal frames and vertical ones 
+            frame = new Rectangle(0, 0, image.Width / sp.HorizontalFrames, image.Height / sp.VerticalFrames);
+            test = frame;
+            Loop = true;
+            Start = startFrame;
+            End = endFrame;
+            //TODO change Loop
+            currentFrame = Start;
+            this.timePerFrame = timeperFrame;
+            timer = 0.0f;
+            Loop = true;
+        }
+        public AnimatedSprite(ContentManager Content, Rectangle position, SpriteSheet sp, float timeperFrame, int startFrame, int endFrame,bool loop)
+        {
+            this.sp = sp;
+            Reverse = true;
+            image = Content.Load<Texture2D>(sp.FilePath);
+            pos = position;
+            //new frame starting at initial position dependent of hrizontal frames and vertical ones 
+            frame = new Rectangle(0, 0, image.Width / sp.HorizontalFrames, image.Height / sp.VerticalFrames);
+            test = frame;
+            loop = true;
+            Start = startFrame;
+            End = endFrame;
+            //TODO change Loop
+            currentFrame = Start;
+            this.timePerFrame = timeperFrame;
+            timer = 0.0f;
+            this.Loop = loop;
         }
 
         public override void Update(GameTime gameTime)
@@ -65,14 +112,29 @@ namespace Aerial_Mayhem.DrawUtils
             // Update my currentFrame pointer
             if (timer >= timePerFrame)
             {
-                if (play)
-                    currentFrame = (currentFrame + 1) % end;
-                if (reverse)
+                if (Play)
                 {
-
-                    currentFrame = Math.Abs(((currentFrame * -1) + 1) % 6);
-
-                }
+                    if (Reverse)
+                    {
+                        currentFrame = currentFrame - 1;
+                        if (currentFrame < Start)
+                            currentFrame = End;
+                    }
+                    else
+                    {
+                        currentFrame = currentFrame + 1;
+                        if (currentFrame > End)
+                            currentFrame = Start;
+                    }
+                       
+                    if (!Loop)
+                    {
+                        if (Reverse)
+                            Play = currentFrame > Start;
+                        else
+                            Play = currentFrame < End;
+                    }
+                }   
                 timer = timer - timePerFrame;
             }
         }

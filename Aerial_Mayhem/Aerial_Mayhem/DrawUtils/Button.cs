@@ -14,7 +14,8 @@ namespace Aerial_Mayhem.DrawUtils
     {
         SimpleSprite[] states;
         Rectangle pos;
-        public Button(Rectangle pos)
+        ButtonStates state;
+        public Button(Rectangle pos,SimpleSprite mouseDown)
         {
 
         }
