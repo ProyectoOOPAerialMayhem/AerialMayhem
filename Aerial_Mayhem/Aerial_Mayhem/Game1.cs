@@ -28,7 +28,6 @@ namespace Aerial_Mayhem
         Player player;
         //testing...
         BackgroundLoop loop;
-        BackgroundLoop loop3;
         TestChraracter bs;
 
         LinkCharacter link1;
@@ -86,6 +85,7 @@ namespace Aerial_Mayhem
             spriteBatch = new SpriteBatch(GraphicsDevice);
             bs.LoadContent(Content);
             Rectangle screen = new Rectangle(0, 480/ 2, 2438, 480);
+<<<<<<< HEAD
             loop = new BackgroundLoop(Content,screen , Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
 
             loop3 = new BackgroundLoop(Content, screen, Color.White, 2, "./Fondo_nivel01/fondo_medio_nivel01");
@@ -131,6 +131,9 @@ namespace Aerial_Mayhem
                 minions.Add(evilmen);
 
             }
+=======
+            loop = new BackgroundLoop(Content,0,240,2, "./Fondo_nivel01/fondo_medio_nivel01");
+>>>>>>> 0db1f7b3c8e74f5e2fa176a89bc9d7b88be32d04
             // TODO: use this.Content to load your game content here
         }
 
