@@ -12,7 +12,7 @@ namespace Aerial_Mayhem.Scenes.Scenes
     {
         GameScene currentScene;
         GameScene tempScene;
-        public GameScene LoadScene(GameScenes scene, ContentManager c, GraphicsDeviceManager g)
+        internal GameScene LoadScene(GameScenes scene, ContentManager c, GraphicsDeviceManager g)
         {
             switch (scene)
             {
@@ -45,9 +45,9 @@ namespace Aerial_Mayhem.Scenes.Scenes
         }
         public void UnloadScene()
         {
-            currentScene.Unload();
+           
         }
-        public void ChangeScene(GameScenes scene,ContentManager Content,GraphicsDeviceManager g)
+         internal void ChangeScene(GameScenes scene,ContentManager Content,GraphicsDeviceManager g)
         {
             currentScene = LoadScene(scene,Content,g);
         }
