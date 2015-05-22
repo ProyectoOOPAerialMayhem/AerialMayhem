@@ -26,14 +26,13 @@ namespace Aerial_Mayhem
         }
         public void LoadContent(ContentManager Content )
         {
-            SpriteSheet sp = new SpriteSheet("mov_avion03",9,10,83);
+            SpriteSheet sp = new SpriteSheet("TestNewSpriteScript",9,10,83);
             animation = new AnimatedSprite(Content,pos,sp,0.05f);
         }
         public void Update(GameTime gameTime)
         {
             //testing wether its worth it to change origin to center of image
             //not sure...
-           // 
             animation.Rotate(0.005f);
             animation.Update(gameTime);
             animation.Pos = pos;
