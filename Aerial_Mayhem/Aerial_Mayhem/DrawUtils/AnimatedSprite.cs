@@ -34,7 +34,6 @@ namespace Aerial_Mayhem.DrawUtils
         public  AnimatedSprite(ContentManager Content, Rectangle position,SpriteSheet sp, float timeperFrame)
         {
             this.sp = sp;
-            Reverse = true;
             image = Content.Load<Texture2D>(sp.FilePath);
             pos = position;
             //new frame starting at initial position dependent of hrizontal frames and vertical ones 
@@ -42,12 +41,12 @@ namespace Aerial_Mayhem.DrawUtils
             test = frame;
             Loop = true;
             Start = 0;
+            Play = true;
             End = sp.FrameCount;
             //TODO change Loop
             currentFrame = Start; 
             this.timePerFrame = timeperFrame; 
             timer = 0.0f;
-            Loop=true;
         }
         public AnimatedSprite(ContentManager Content, Rectangle position, SpriteSheet sp, float timeperFrame,bool loop)
         {
@@ -70,9 +69,9 @@ namespace Aerial_Mayhem.DrawUtils
         public AnimatedSprite(ContentManager Content, Rectangle position, SpriteSheet sp, float timeperFrame,int startFrame,int endFrame)
         {
             this.sp = sp;
-            Reverse = true;
             image = Content.Load<Texture2D>(sp.FilePath);
             pos = position;
+            Play = true;
             //new frame starting at initial position dependent of hrizontal frames and vertical ones 
             frame = new Rectangle(0, 0, image.Width / sp.HorizontalFrames, image.Height / sp.VerticalFrames);
             test = frame;
@@ -83,7 +82,6 @@ namespace Aerial_Mayhem.DrawUtils
             currentFrame = Start;
             this.timePerFrame = timeperFrame;
             timer = 0.0f;
-            Loop = true;
         }
         public AnimatedSprite(ContentManager Content, Rectangle position, SpriteSheet sp, float timeperFrame, int startFrame, int endFrame,bool loop)
         {
@@ -107,7 +105,6 @@ namespace Aerial_Mayhem.DrawUtils
         public override void Update(GameTime gameTime)
         {
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
             // Update my animation
             // Update my currentFrame pointer
             if (timer >= timePerFrame)

@@ -8,7 +8,7 @@
     <ProjectGuid>{8AA2F349-EFF1-43BD-B875-FEC4BF3E55B9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aerial_Mayhem.Scenes</RootNamespace>
+    <RootNamespace>Aerial_Mayhem</RootNamespace>
     <AssemblyName>Aerial_Mayhem</AssemblyName>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

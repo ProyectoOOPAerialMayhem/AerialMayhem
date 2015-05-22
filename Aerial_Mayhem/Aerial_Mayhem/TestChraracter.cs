@@ -24,17 +24,18 @@ namespace Aerial_Mayhem
         {
             this.pos = pos;
         }
-        public void LoadContent(ContentManager Content ){
-            SpriteSheet sp = new SpriteSheet("mov_avion03",9,10,84);
-            animation = new AnimatedSprite(Content,pos,sp,0.7f);
+        public void LoadContent(ContentManager Content )
+        {
+            SpriteSheet sp = new SpriteSheet("mov_avion03",9,10,83);
+            animation = new AnimatedSprite(Content,pos,sp,0.05f);
         }
         public void Update(GameTime gameTime)
         {
             //testing wether its worth it to change origin to center of image
             //not sure...
+           // 
             animation.Rotate(0.005f);
             animation.Update(gameTime);
-            pos.X++;
             animation.Pos = pos;
         }
         public void Draw(SpriteBatch sp){
