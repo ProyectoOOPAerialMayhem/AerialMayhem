@@ -121,6 +121,15 @@
     <Content Include="Content\Botones\btn_select_sobre.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\disparo1fix2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\disparo1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\disparo1_fix.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Fondo_inicio.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

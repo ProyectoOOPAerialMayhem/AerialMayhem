@@ -36,6 +36,7 @@ namespace Aerial_Mayhem.DrawUtils
             this.sp = sp;
             image = Content.Load<Texture2D>(sp.FilePath);
             pos = position;
+            Play = true;
             //new frame starting at initial position dependent of hrizontal frames and vertical ones 
             frame = new Rectangle(0,0,image.Width/sp.HorizontalFrames,image.Height/sp.VerticalFrames);
             test = frame;
@@ -51,13 +52,12 @@ namespace Aerial_Mayhem.DrawUtils
         public AnimatedSprite(ContentManager Content, Rectangle position, SpriteSheet sp, float timeperFrame,bool loop)
         {
             this.sp = sp;
-            Reverse = true;
+            Play = true;
             image = Content.Load<Texture2D>(sp.FilePath);
             pos = position;
             //new frame starting at initial position dependent of hrizontal frames and vertical ones 
             frame = new Rectangle(0, 0, image.Width / sp.HorizontalFrames, image.Height / sp.VerticalFrames);
             test = frame;
-            loop = true;
             Start = 0;
             End = sp.FrameCount;
             //TODO change Loop
@@ -86,13 +86,12 @@ namespace Aerial_Mayhem.DrawUtils
         public AnimatedSprite(ContentManager Content, Rectangle position, SpriteSheet sp, float timeperFrame, int startFrame, int endFrame,bool loop)
         {
             this.sp = sp;
-            Reverse = true;
             image = Content.Load<Texture2D>(sp.FilePath);
             pos = position;
+            Play = true;
             //new frame starting at initial position dependent of hrizontal frames and vertical ones 
             frame = new Rectangle(0, 0, image.Width / sp.HorizontalFrames, image.Height / sp.VerticalFrames);
             test = frame;
-            loop = true;
             Start = startFrame;
             End = endFrame;
             //TODO change Loop

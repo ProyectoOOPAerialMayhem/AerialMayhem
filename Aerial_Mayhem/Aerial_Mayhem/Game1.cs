@@ -33,7 +33,7 @@ namespace Aerial_Mayhem
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            bs = new TestChraracter(new Rectangle(100, 100, 100, 100));
+            bs = new TestChraracter(new Rectangle(200, 100, 200, 100));
             //screen: graphics.PreferredBackBufferHeight; graphics.PreferredBackBufferWidth
         }
 
@@ -99,11 +99,12 @@ namespace Aerial_Mayhem
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            //spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Texture, BlendState.NonPremultiplied);// <--works realy well for pngs
             loop.Draw(spriteBatch);
             bs.Draw(spriteBatch);
-            base.Draw(gameTime);
             spriteBatch.End();
+            base.Draw(gameTime);
         }
     }
 }
