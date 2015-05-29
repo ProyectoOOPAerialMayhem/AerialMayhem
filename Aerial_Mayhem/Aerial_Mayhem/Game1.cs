@@ -33,7 +33,7 @@ namespace Aerial_Mayhem
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            bs = new TestChraracter(new Rectangle(200, 100, 200, 100));
+            bs = new TestChraracter(new Rectangle(200, 100, 50, 25));
             //screen: graphics.PreferredBackBufferHeight; graphics.PreferredBackBufferWidth
         }
 
